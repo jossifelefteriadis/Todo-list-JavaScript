@@ -12,6 +12,10 @@ const newItem = e => {
 const addItem = text => {
   const li = document.createElement('li');
   li.innerHTML = text;
+  const removeBtn = document.createElement('button');
+  removeBtn.classList.add('delete__btn');
+  removeBtn.innerHTML = 'X';
+  li.appendChild(removeBtn);
   undone.appendChild(li);
 };
 
@@ -26,6 +30,13 @@ done.addEventListener('click', event => {
   if (event.target.tagName === 'LI') {
     event.target.classList.toggle('checked');
     undone.appendChild(event.target);
+  }
+});
+
+document.addEventListener('click', event => {
+  event.preventDefault();
+  if (event.target.classList.contains('delete__btn')) {
+    event.target.parentElement.style.display = 'none';
   }
 });
 
