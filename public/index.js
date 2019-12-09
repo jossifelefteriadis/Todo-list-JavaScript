@@ -22,4 +22,11 @@ undone.addEventListener('click', event => {
   }
 });
 
+done.addEventListener('click', event => {
+  if (event.target.tagName === 'LI') {
+    event.target.classList.toggle('checked');
+    undone.appendChild(event.target);
+  }
+});
+
 btn.addEventListener('click', newItem);
