@@ -1,5 +1,6 @@
 const btn = document.querySelector('.todo__register__btn');
 const undone = document.querySelector('.todo__list__undone');
+const done = document.querySelector('.todo__list__done');
 
 const newItem = e => {
   e.preventDefault();
@@ -13,5 +14,12 @@ const addItem = text => {
   li.innerHTML = text;
   undone.appendChild(li);
 };
+
+undone.addEventListener('click', event => {
+  if (event.target.tagName === 'LI') {
+    event.target.classList.toggle('checked');
+    done.appendChild(event.target);
+  }
+});
 
 btn.addEventListener('click', newItem);
