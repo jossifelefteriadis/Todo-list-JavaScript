@@ -5,6 +5,9 @@ const done = document.querySelector('.todo__list__done');
 const newItem = e => {
   e.preventDefault();
   const text = document.querySelector('.todo__register__input').value;
+  if (text === '') {
+    return;
+  }
   addItem(text);
   document.querySelector('.todo__register__input').value = '';
 };
